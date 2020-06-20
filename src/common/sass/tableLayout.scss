@@ -1,0 +1,43 @@
+.table {
+
+  &-layout {
+    text-align: center;
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  &-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    font-weight: 600;
+  }
+
+  &-row {
+    display: flex;
+
+    &:nth-child(odd) {
+      background-color: #F5F4EE;
+    }
+
+    &:nth-child(even) {
+      background-color: #E4E5DD;
+    }
+  }
+
+  &-col {
+    padding: 5px 10px;
+    // flex: 1;
+
+    @for $i from 1 through 12 {
+      &-#{$i} {
+        flex-basis: ($i/12) * 100%;
+      }
+    }
+  }
+
+  &-col-header {
+    
+  }
+}

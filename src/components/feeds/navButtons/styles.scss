@@ -1,0 +1,17 @@
+.nav-btn {
+  color: #F26325;
+  display: inline;
+  cursor: pointer;
+
+  &--wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  & + &::before {
+    content: '|';
+    margin-left: 10px;
+    margin-right: 10px;;
+  }
+
+}

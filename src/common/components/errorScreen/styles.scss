@@ -1,0 +1,31 @@
+.page-error-screen {
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.w_bg {
+    border: none;
+  }
+
+  img.try-again-img {
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;    
+  }
+  .try-again-link {
+    line-height: 16px;
+    vertical-align: middle;
+    color: #4a90e2;
+    cursor: pointer;
+  }
+
+  .try-again-img + .try-again-link {
+    margin-left: 5px;
+  }
+
+  .error-actions {
+    text-align: center;
+  }
+}

@@ -1,0 +1,106 @@
+.dashboard-timeline-wrapper {
+  .timeline-item {
+    background: #fff;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    padding: 12px;
+    margin: 0 auto;
+    //max-width: 472px;
+    min-height: 175px;
+  }
+
+  .animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #e5e5e5 8%, #f5f5f5 18%, #e5e5e5 33%);
+    background-size: 800px 104px;
+    height: 140px;
+    position: relative;
+  }
+  
+  .background-masker {
+    background: #fff;
+    position: absolute;
+  }
+  /* Every thing below this is just positioning */
+  
+  .background-masker.header-top,
+  .background-masker.header-bottom,
+  .background-masker.subheader-bottom {
+    top: 0;
+    left: 0;
+    right: 40px;
+    height: 10px;
+  }
+  
+  .background-masker.header-left,
+  .background-masker.subheader-left,
+  .background-masker.header-right,
+  .background-masker.subheader-right {
+    top: -1px;
+    left: 40px;
+    height: 11px;
+    width: 10px;
+  }
+  
+  .background-masker.header-bottom {
+    top: 10px;
+    height: 10px;
+  }
+  
+  .background-masker.subheader-left,
+  .background-masker.subheader-right {
+    top: 20px;
+    height: 10px;
+  }
+  
+  .background-masker.header-right,
+  .background-masker.subheader-right {
+    width: 30px;
+    left: auto;
+    right: 40px;
+  }
+  
+  .background-masker.subheader-right {
+    right: 40px;
+  }
+  
+  .background-masker.subheader-bottom {
+    top: 30px;
+    height: 10px;
+  }
+  
+  .background-masker.content-first-end {
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 15px;
+  }
+  
+  .background-masker.content-first-end {
+    left: 120px;
+    top: 40px;
+    width: auto;
+    left: 150px;
+    right: 0;
+    top: 40px;
+    height: 10px;
+  }
+}
+
+
+@keyframes placeHolderShimmer {
+  0% {
+      background-position: -200px 0;
+  }
+  100% {
+      background-position: 468px 0;
+  }
+}
+
+
