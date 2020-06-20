@@ -73,10 +73,11 @@
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "4.3.1",
     "ignore-styles": "^5.0.1",
-    "@babel/register": "^7.10.3"
+    "@babel/register": "^7.10.3",
+    "@babel/preset-env": "^7.10.3"
   },
   "engines": {
-    "node" : "^12" 
+    "node": "^12"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -103,7 +104,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.10.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.5.0",
