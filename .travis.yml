@@ -1,34 +1,26 @@
 language: node_js
 node_js:
-  - "12"
-
+- '12'
 git:
   depth: 1
-
 jobs:
   include:
-    - stage: "test"
-      script: npm test
-    - stage: "build"
-      script: npm run build
-    - stage: "install"
-      script: npm install
-    - stage: "deploy"
-      script: skip
-      deploy: 
-        provider: heroku
-        api_key:
-          secure: HEROKU_API_KEY
-
-
-#install: npm install
-#script: npm run build
-#deploy:
-
+  - stage: test
+    script: npm test
+  - stage: build
+    script: npm run build
+  - stage: install
+    script: npm install
+  - stage: deploy
+    script: skip
+    deploy:
+      provider: heroku
+      api_key:
+        secure: NILqO8sHUL1p9UsHyIy8Fa9SW/XCqYD4Cog/cEBWFI0o1gLtSjocopB9D012rw45atQWcW3f1wmUVFTV4/9EKme9INRKlEvGSZX9K2cRDv9xnJTfzg/hOAhCMKGBcQPey0Blw/3nurGyMlZu+oUCyPxbYInfYkfsGDCCEiEiwcpHKSbSjsQMmhXP6oJm86urYmKFMthAfVxpWlpdYAM46z15dYmmdPIL7vsUaWJU9Qrk+JG3YwUvaNT7xtv2ryl1r0qENONZWHw6Zo1idDy3hVFXEbR0uVdawPP9eeKAFKy/D+o06t+bA9vKfoqpQ9gN3sM+XJFFPZYgCsY/+VfrrtoquFkbtLHg+xwciwp0zoQ38GMky472CGQ7ji/7Mk06asWgmYt4dAzblnVp81hyKSfcJCH/YAOIKKKyLnBzGvewMrvdDEg9UTOPo+FvPJAKDDhfkWup6z7j4h3VtNUGo6ae6IFdtR5XkvdAG0ZWxmJMSeEZRxi9VGkxNFnbnoj0EUnh80gp2KoNUgtmjfWviUEvYyp5HEipZbK4Bq9c5ZgiA92/qTSO1wr+iHlBcHq2JJLy8CqvzarNJbJiDy3DDk1JboOZrPOc4/EsQkj3T0iKbGhxgGDL7hDI3s6kWtgegjihnDx8kIwkXuJCIOvez3Qmvs0OvjHFrermbof6Wzg=
 stages:
-  - install
-  - name: test
-    if: branch = master
-  - build
-  - name: deploy
-    if: branch = master
+- install
+- name: test
+  if: branch = master
+- build
+- name: deploy
+  if: branch = master
