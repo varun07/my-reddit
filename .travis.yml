@@ -17,6 +17,7 @@ jobs:
       provider: heroku
       api_key:
         secure: KLaN/kSriyMa9hmzY7w+kNjRneNorZxMgHTzRjkEUO25ArNAdH6Zg+HRcNDkOX5lnMwUVGX+RaDSVT25VnKGlukdtpff6Q2YYOaBqf2H3hwIAzUmuG3xKIpYSHpt4t0/P8Iw8GQHDlkH0/UuM9O5zfGZdMIxQY5n6EUHXTyx9CYk88thJMion9Iku6Pnp+UmM7GJmH4XkzJ2xwD38o22V2HNP35+v5+V0uFYDlIALpn2syd3p9cgZVXNEcotCfSqOqbruo6iB0Qrhh/Udhj84LgAz9mcmoaMUFbr65MnCBLPzGbG3OeQ9G6ZZBPUFyuwUD9bAy9C1K9L295ELlENXnv80c1uOdB4jL9kWUTlMZ/6xhSFvJ8KQY8u0OHDGqP8CZMpaWax/MUxHEUwKyNl36ThlClKvsqXwEraIm/iuyt5B1szVL63NJu07Q29zjfGnlQvewJPOW/T4rCxBcmtTgl3EcUvMkV3kMsc8v89mJ7aziX2wJkSLtCBpAOszeT1EZmVVwbb7aQVe/vTdbs73AVuSTAWSBalddZ12Clw2KF5joVmqoN/VmI8861+cvLvXZYOitz5s7/SC4cbP5bqkrATxU0jmtuc+MD3z7T0t/tu3j4YV6z/mGoMAVm4D9eXkNSBVzrH3+eP3kTvzzZizcgEyu+BOJimvn/vv+zQ/sM=
+      app: lit-plateau-50113
 stages:
 - install
 - name: test
