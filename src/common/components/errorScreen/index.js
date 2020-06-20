@@ -15,10 +15,10 @@ export default function ErrorScreen(props) {
   return (
     <div className={`page-error-screen w_bg ${className}`}>{/* w_bg comes from static4/smCommon */}
       <div className="error-screen-content-wrapper">
-        <img src={pageErrorImg} className="page-error-image" height="150px" width="150px" />
+        <img src={pageErrorImg} className="page-error-image" alt="page error" height="150px" width="150px" />
         {!!actions && (
           <div className="error-actions">
-            <img src={tryAgainImg} className="try-again-img" />
+            <img src={tryAgainImg} className="try-again-img" alt="try again" />
             <span className="try-again-link" onClick={reloadPage}>{errorMessageLink}</span>
           </div>
         )}

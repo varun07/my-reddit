@@ -23,7 +23,7 @@ export default function FeedItem(props) {
       </div>
       <div className="news-detail table-col table-col-9">
           <span>{title}</span>
-          <span className="feed-source-url txt-small txt-light"><a href={url} target="_blank">({url})</a></span>
+          <span className="feed-source-url txt-small txt-light"><a href={url} rel="noopener noreferrer" target="_blank">({url})</a></span>
           <span className="txt-small txt-light">by</span>
           <span>{author}</span>
           <span className="txt-small txt-light">{relativeTimeInWords(created_at)}</span>
