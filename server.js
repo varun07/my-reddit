@@ -4,6 +4,7 @@ import fs from 'fs';
 import React from 'react';
 import express from 'express';
 import ReactDOMServer from 'react-dom/server';
+import compression from 'compression';
 
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
@@ -12,12 +13,11 @@ import Reducers from './src/globalRedux/reducers';
 import App from './src/App';
 
 const store = createStore(Reducers);
-const preloadedState = store.getState();
 
 const PORT = process.env.PORT || 3006;
 const app = express();
 
-
+app.use(compression());
 
 app.get('/', (req, res) => {
   const app = ReactDOMServer.renderToString(<Provider store={store}><App /></Provider>);
