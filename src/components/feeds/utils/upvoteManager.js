@@ -2,18 +2,31 @@ export default class UpvoteManager {
   static keyName = 'votes';
 
   static updateVote(id, voteCount) {
-    const votes = window.localStorage.getItem[this.keyName];
+    const store = window.localStorage.getItem(this.keyName);
+    let votes = store ? JSON.parse(store) : {};
     if(votes && votes[id]) {
-      votes[id] += voteCount;
+      votes = {
+        ...votes,
+        [id]: votes[id] + voteCount
+      }
     }
     else {
-      votes[id] = voteCount;
+      votes = {
+        ...votes,
+        [id]: voteCount
+      };
     }
-    window.localStorage.setItem(this.keyName, votes)
+    window.localStorage.setItem(this.keyName, JSON.stringify(votes));
   }
 
   static getVotes(id) {
-    const votes = window.localStorage.getItem[this.keyName];
-    return (votes && votes[id]) || 0;
+    const votesStore = window.localStorage.getItem(this.keyName);
+    if(votesStore) {
+      let votes = JSON.parse(votesStore);
+      if(votes[id]) {
+        return votes[id];
+      }
+    }
+    return 0;
   }
 }

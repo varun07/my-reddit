@@ -11,7 +11,8 @@ export default function FeedItem(props) {
     title,
     author,
     created_at,
-    markUpvote
+    markUpvote,
+    hideFeed
   } = props;
 
   return (
@@ -27,6 +28,7 @@ export default function FeedItem(props) {
           <span className="txt-small txt-light">by</span>
           <span>{author}</span>
           <span className="txt-small txt-light">{relativeTimeInWords(created_at)}</span>
+          <span className="txt-small ptr" onClick={() =>hideFeed(index)}>(hide)</span>
       </div>
     </div>
   )

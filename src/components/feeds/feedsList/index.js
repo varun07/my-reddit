@@ -2,7 +2,7 @@ import React from 'react';
 import FeedItem from '../feedItem/container';
 import FeedHeader from '../header';
 import NavButtons from '../navButtons';
-
+import VoteCountChart from '../voteCountChart/container';
 import Shimmer from '../../../common/components/shimmer';
 import Loader from '../../../common/components/loader';
 import ErrorScreen from '../../../common/components/errorScreen';
@@ -63,7 +63,7 @@ export default class FeedsList extends React.PureComponent {
       ));
     }
     else {
-      return 'No Feeds Available';
+      return <div className="mt20">No Feeds Available</div>;
     }
   }
 
@@ -85,6 +85,9 @@ export default class FeedsList extends React.PureComponent {
             onNextBtnClick={this.nextBtnClick}
           />
         )}
+        <div className="votesCharat">
+          <VoteCountChart />
+        </div>
       </div>
     )
   }

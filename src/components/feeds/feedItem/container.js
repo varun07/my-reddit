@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import FeedItem from './index';
 import { bindActionCreators } from 'redux';
-import { markUpvote } from '../actions';
+import { markUpvote, hideFeed } from '../actions';
 
 function mapStateToProps(state, props) {
   return state.newsFeed.feedsList && state.newsFeed.feedsList.length > 0 ? state.newsFeed.feedsList[props.index] : {};
@@ -9,7 +9,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps() {
   return dispatch => bindActionCreators({
-    markUpvote
+    markUpvote,
+    hideFeed
   }, dispatch);
 }
 
