@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 3006;
 const app = express();
 
 app.use(compression());
-app.use(express.static(path.resolve('.', 'build')));
 
 app.get('/', (req, res) => {
   const app = ReactDOMServer.renderToString(<Provider store={store}><App /></Provider>);
@@ -36,7 +35,7 @@ app.get('/', (req, res) => {
   });
 });
 
-
+app.use(express.static(path.resolve('.', 'build')));
 
 app.listen(PORT, () => {
   console.log(`😎 Server is listening on port ${PORT}`);

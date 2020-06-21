@@ -7,7 +7,9 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <header></header>
+        <header>
+          <h1 className="center">Reddit News Feed</h1>
+        </header>
         <main>
           <FeedsList />
         </main>
