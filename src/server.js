@@ -8,9 +8,9 @@ import compression from 'compression';
 
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
-import Reducers from './src/globalRedux/reducers';
+import Reducers from './globalRedux/reducers';
 
-import App from './src/App';
+import App from './App';
 
 const store = createStore(Reducers);
 
@@ -18,11 +18,12 @@ const PORT = process.env.PORT || 3006;
 const app = express();
 
 app.use(compression());
+app.use(express.static(path.resolve('.', 'build')));
 
 app.get('/', (req, res) => {
   const app = ReactDOMServer.renderToString(<Provider store={store}><App /></Provider>);
   
-  const indexFile = path.resolve('./build/index.html');
+  const indexFile = path.resolve('.', 'build', 'index.html');
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
       console.error('Something went wrong:', err);
@@ -35,7 +36,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use(express.static(path.resolve(__dirname, 'build')));
+
 
 app.listen(PORT, () => {
   console.log(`😎 Server is listening on port ${PORT}`);
