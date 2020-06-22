@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import FeedsList from '..';
+import {FeedsList} from '..';
 
 
 configure({adapter: new Adapter});
@@ -17,6 +17,15 @@ describe('Feeds List Component', () => {
         totalPages: 0,
       },
       errorScreen: false,
+      match: {
+        params: {
+          id: 1
+        }
+      },
+      history: {
+        replace: jest.fn(),
+        push: jest.fn()
+      },
       fetchFeeds: jest.fn().mockReturnValue(new Promise((resolve, reject) => {}))
     }
 
