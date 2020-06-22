@@ -85,7 +85,7 @@
     "build-server": "NODE_ENV=production webpack --config webpack.server.js --mode=production",
     "test": "node scripts/test.js",
     "start:server": "node ./server-build/server.js",
-    "dev:build-client": "NODE_ENV=development node scripts/build.js -w",
+    "dev:build-client": "NODE_ENV=development node scripts/build.js -w --mode=development",
     "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
     "build-parallel": "npm-run-all --parallel build-*",
     "build": "npm run build-client && npm run build-server",
