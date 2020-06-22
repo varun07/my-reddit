@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './globalRedux/store';
-import FeedsList from './components/feeds/feedsList/container';
+import AppRoutes from './appRoutes';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
           <h1 className="center">Reddit News Feed</h1>
         </header>
         <main>
-          <FeedsList />
+          <AppRoutes />
         </main>
       </div>
     </Provider>

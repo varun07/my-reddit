@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import FeedItem from '../feedItem/container';
 import FeedHeader from '../header';
 import NavButtons from '../navButtons';
@@ -8,7 +10,7 @@ import Loader from '../../../common/components/loader';
 import ErrorScreen from '../../../common/components/errorScreen';
 import './styles.scss';
 
-export default class FeedsList extends React.PureComponent {
+export class FeedsList extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -19,23 +21,50 @@ export default class FeedsList extends React.PureComponent {
     }
   }
   componentDidMount() {
-    const { fetchFeeds, pagination } = this.props;
-    fetchFeeds(pagination.currentPage, pagination.pageSize)
+    const { fetchFeeds, pagination, match, history } = this.props;
+    let pageNo = 0;
+    if(match.params.id && Number(match.params.id) > 0) {
+      pageNo = match.params.id - 1;
+    }
+    else {
+      console.log(history);
+      
+      history.replace('/page/1');
+    }
+    fetchFeeds(pageNo, pagination.pageSize)
       .finally(() => {
         this.setState({ showShimmer: false });
       });
   }
 
-  prevBtnClick = () => {
+
+
+  componentDidUpdate(prevProps) {
+    if(prevProps !== this.props) {
+      if(this.props.match.params.id !== prevProps.match.params.id) {
+        this.updateFeeds(this.props.match.params.id);
+      }
+    }
+  }
+
+  updateFeeds = (pageNumber) => {
     const { fetchFeeds, pagination } = this.props;
     this.setState({ showLoader: true });
-    fetchFeeds(pagination.currentPage - 1, pagination.pageSize).finally(() => this.setState({ showLoader: false }));
+    fetchFeeds(pageNumber - 1, pagination.pageSize).finally(() => this.setState({ showLoader: false }));
+  }
+
+  prevBtnClick = () => {
+    const { history, match } = this.props;
+    const prevPageNo = Number(match.params.id) - 1;
+    history.push(`/page/${prevPageNo}`);
   }
 
   nextBtnClick = () => {
-    const { fetchFeeds, pagination } = this.props;
-    this.setState({ showLoader: true });
-    fetchFeeds(pagination.currentPage + 1, pagination.pageSize).finally(() => this.setState({ showLoader: false }));
+    const { history, match } = this.props;
+    const nextPageNo = Number(match.params.id) + 1;
+    const path = `/page/${nextPageNo}`;
+    
+    history.push(path);
   }
 
   reloadFeeds = () => {
@@ -92,3 +121,5 @@ export default class FeedsList extends React.PureComponent {
     )
   }
 }
+
+export default withRouter(FeedsList);
